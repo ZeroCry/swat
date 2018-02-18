@@ -1,0 +1,11 @@
+[package]
+name = "swat"
+version = "0.9.0"
+description = "A helper for painless use of AT command interfaces."
+authors = ["Philipp Gorczak <p.gorczak@gmail.com>"]
+
+[dependencies]
+ansi_term = "0.9"
+clap = "2.30.0"
+rustyline = "1.0.0"
+serial = "0.4"

@@ -1,4 +1,5 @@
 extern crate ansi_term;
+#[macro_use]
 extern crate clap;
 extern crate rustyline;
 extern crate serial;
@@ -9,9 +10,9 @@ mod device;
 mod repl;
 
 fn main() {
-    let matches = App::new("My Super Program")
-                          .version("1.0")
-                          .about("Does awesome things")
+    let matches = App::new(crate_name!())
+                          .version(crate_version!())
+                          .about(crate_description!())
                           .arg(Arg::with_name("device")
                                .short("d")
                                .long("device")
@@ -20,7 +21,7 @@ fn main() {
                                .takes_value(true)
                                .required(true))
                           .subcommand(SubCommand::with_name("repl")
-                                      .about("starts an interactive repl"))
+                                      .about("Starts an interactive session."))
                           //.subcommand(SubCommand::with_name("run")
                           //            .about("runs a single command")
                           //            .arg(Arg::with_name("cmd")
